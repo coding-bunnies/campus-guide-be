@@ -1,5 +1,6 @@
 package site.rookies.guide.controller
 
+import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import site.rookies.guide.dto.ScheduleRequest
@@ -11,6 +12,7 @@ import site.rookies.guide.services.ScheduleService
 class ScheduleController(
     private val scheduleService: ScheduleService
 ) {
+    @GetMapping("")
     fun getSchedules(
         scheduleRequest: ScheduleRequest
     ): SchedulesResponse {

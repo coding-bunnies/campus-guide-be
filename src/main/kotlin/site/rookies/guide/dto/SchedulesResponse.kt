@@ -1,5 +1,5 @@
 package site.rookies.guide.dto
 
 class SchedulesResponse(
-    list: List<SchedulesDto>
+    val list: List<SchedulesDto>
 )
