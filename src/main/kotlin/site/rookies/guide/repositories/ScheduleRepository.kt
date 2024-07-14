@@ -1,8 +1,7 @@
 package site.rookies.guide.repositories
 
 import org.springframework.data.jpa.repository.JpaRepository
-import site.rookies.guide.entity.Subject
+import site.rookies.guide.entity.Schedule
 
-interface SubjectRepository : JpaRepository<Subject, Int> {
-
+interface ScheduleRepository: JpaRepository<Schedule, Int> {
 }

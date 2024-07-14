@@ -11,7 +11,13 @@ class Subject(
     description: String,
     outline: String,
     imageUrl: String,
-) {
+    grade: Int,
+    semester: Int,
+    midtermExam: Boolean,
+    finalExam: Boolean,
+    assignmentAvailable: Boolean,
+    prerequisiteSubject: Subject? = null
+): BaseTimeEntity() {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
@@ -33,11 +39,36 @@ class Subject(
     var description: String = description
         protected set
 
-    @Column(name = "outline", nullable = false)
+    @Column(name = "outline", nullable = false, columnDefinition = "TEXT")
     var outline: String = outline
         protected set
 
     @Column(name = "image_url", nullable = false)
     var imageUrl: String = imageUrl
+        protected set
+
+    @Column(name = "grade", nullable = false)
+    var grade: Int = grade
+        protected set
+
+    @Column(name = "semester", nullable = false)
+    var semester: Int = semester
+        protected set
+
+    @Column(name = "midterm_exam", nullable = false)
+    var midtermExam: Boolean = midtermExam
+        protected set
+
+    @Column(name = "final_exam", nullable = false)
+    var finalExam: Boolean = finalExam
+        protected set
+
+    @Column(name = "assignment_available", nullable = false)
+    var assignmentAvailable: Boolean = assignmentAvailable
+        protected set
+
+    @ManyToOne
+    @JoinColumn(name = "prerequisite_subject_id")
+    var prerequisiteSubject: Subject? = prerequisiteSubject
         protected set
 }
